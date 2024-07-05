@@ -63,7 +63,7 @@ public class UserConfigRepository extends Repository<UserConfig> {
                     ?,
                     ?
                   )
-                  """;
+                """;
 
         return execute(connection -> {
             try (PreparedStatement stm = connection.prepareStatement(sql)) {
@@ -96,7 +96,7 @@ public class UserConfigRepository extends Repository<UserConfig> {
                 stm.execute("""
                             create unique index if not exists table_name_player_id_key_uindex
                                 on user_config (player_id, `key`);
-                                """);
+                            """);
             }
         });
     }

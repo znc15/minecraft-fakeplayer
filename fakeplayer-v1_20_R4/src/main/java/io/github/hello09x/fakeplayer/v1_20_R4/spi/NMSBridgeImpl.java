@@ -13,7 +13,8 @@ import java.util.Set;
 
 public class NMSBridgeImpl implements NMSBridge {
 
-    private final static Set<String> SUPPORTS = Set.of("1.20.3", "1.20.4");
+    // 删除 SUPPORTS 集合
+    // private final static Set<String> SUPPORTS = Set.of("1.20.4");
 
     @Override
     public @NotNull NMSEntity fromEntity(@NotNull Entity entity) {
@@ -42,12 +43,14 @@ public class NMSBridgeImpl implements NMSBridge {
 
     @Override
     public boolean isSupported() {
-        return SUPPORTS.contains(Bukkit.getMinecraftVersion());
+        // 移除版本检测
+        // return SUPPORTS.contains(Bukkit.getMinecraftVersion());
+        return true;
     }
 
     @Override
     public @NotNull ActionTicker createAction(@NotNull Player player, @NotNull Action.ActionType action, @NotNull Action.ActionSetting setting) {
         return new ActionTickerImpl(player, action, setting);
     }
-
 }
+
